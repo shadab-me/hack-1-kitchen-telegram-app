@@ -1,5 +1,26 @@
 {
+  "name": "AltCampusKitchen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AltCampus/hack-1-kitchen-telegram-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AltCampus/hack-1-kitchen-telegram-app/issues"
+  },
+  "homepage": "https://github.com/AltCampus/hack-1-kitchen-telegram-app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-schedule": "^2.0.0",
+    "node-telegram-bot-api": "^0.51.0"
   }
 }
