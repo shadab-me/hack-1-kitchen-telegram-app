@@ -1,7 +1,6 @@
 const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
 require("dotenv").config();
-
 const bot = new TelegramBot(process.env.TOKEN, { polling: true });
 let peopleNotHaveFood = [];
 let userInput = false;
