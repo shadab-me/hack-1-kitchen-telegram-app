@@ -1,7 +1,7 @@
 const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
-const rule = new schedule.RecurrenceRule();
 require("dotenv").config();
+
 const bot = new TelegramBot(process.env.TOKEN, { polling: true });
 let peopleNotHaveFood = [];
 let userInput = false;
@@ -37,7 +37,9 @@ bot.onText(/\/start/, (msg) => {
 });
 
 bot.onText(/\/menu/, (msg) => {
-  bot.sendMessage(msg.chat.id, "Menu List");
+  bot.sendMessage(msg.chat.id, "<strong>Monday</strong>:<i>daliya</i>", {
+    parse_mode: "HTML",
+  });
 });
 
 function timeTable() {
@@ -48,7 +50,10 @@ function timeTable() {
       peopleNotHaveFood = [];
       bot.sendMessage(
         "-1001353914062",
-        "<b>Are you having breakfast?</b>\n<b>If no please respond with /no</b>"
+        "<b>Are you having lunch</b>\n<strong>If no please Respond with /no </strong>\n\n\n<i>thank you.</i>",
+        {
+          parse_mode: "HTML",
+        }
       );
     }
   );
@@ -59,20 +64,27 @@ function timeTable() {
       peopleNotHaveFood = [];
       bot.sendMessage(
         "-1001353914062",
-        "<b>Are you Having Lunch</b>\n<b>If No Please Respond with /no</b>"
+        "<b>Are you having lunch</b>\n<strong>If no please Respond with /no </strong>\n\n\n<i>thank you.</i>",
+        {
+          parse_mode: "HTML",
+        }
       );
       userInput = true;
     }
   );
 
   const dinner = schedule.scheduleJob(
-    { hour: 18, minute: 0, dayOfWeek: [0, 6] },
+    { hour: 18, minute: 3, dayOfWeek: [0, 6] },
     function () {
       peopleNotHaveFood = [];
       bot.sendMessage(
         "-1001353914062",
-        "<b>Are you Having Dinner</b>\n<b>If No Please Respond with /no</b>"
+        "<b>Are you having dinner</b>\n<strong>If no please Respond with /no </strong>\n\n\n<i>thank you.</i>",
+        {
+          parse_mode: "HTML",
+        }
       );
+      userInput == true;
     }
   );
 }

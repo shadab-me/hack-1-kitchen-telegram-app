@@ -1,0 +1,5 @@
+"scripts": {
+   "test": "echo \"Error: no test specified\" && exit 1",
+   // Add the code below
+   "start": "node bot.js"
+}
