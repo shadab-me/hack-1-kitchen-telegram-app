@@ -51,11 +51,12 @@ function timeTable() {
       peopleNotHaveFood = [];
       bot.sendMessage(
         "-1001353914062",
-        "<b>Are you having lunch</b>\n<strong>If no please Respond with /no </strong>\n\n\n<i>thank you.</i>",
+        "<b>Are you having breakkfast</b>\n<strong>If no please Respond with /no </strong>\n\n\n<i>thank you.</i>",
         {
           parse_mode: "HTML",
         }
       );
+      userInput = true;
     }
   );
 
@@ -75,7 +76,7 @@ function timeTable() {
   );
 
   const dinner = schedule.scheduleJob(
-    { hour: 19, minute: 47, dayOfWeek: [0, 6] },
+    { hour: 19, minute: 00, dayOfWeek: [0, 6] },
     function () {
       peopleNotHaveFood = [];
       bot.sendMessage(
@@ -112,7 +113,7 @@ function listOfPeople() {
     }
   );
   const dinner = schedule.scheduleJob(
-    { hour: 19, minute: 48, dayOfWeek: [0, 6] },
+    { hour: 19, minute: 0, dayOfWeek: [0, 6] },
     function () {
       bot.sendMessage(
         "552375707",
