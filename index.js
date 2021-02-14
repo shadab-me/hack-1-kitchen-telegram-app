@@ -1,7 +1,9 @@
 const TelegramBot = require("node-telegram-bot-api");
 const schedule = require("node-schedule");
 require("dotenv").config();
+const http = require("http");
 const bot = new TelegramBot(process.env.TOKEN, { polling: true });
+
 let peopleNotHaveFood = [];
 let userInput = false;
 
@@ -73,7 +75,7 @@ function timeTable() {
   );
 
   const dinner = schedule.scheduleJob(
-    { hour: 18, minute: 3, dayOfWeek: [0, 6] },
+    { hour: 19, minute: 47, dayOfWeek: [0, 6] },
     function () {
       peopleNotHaveFood = [];
       bot.sendMessage(
@@ -83,7 +85,7 @@ function timeTable() {
           parse_mode: "HTML",
         }
       );
-      userInput == true;
+      userInput = true;
     }
   );
 }
@@ -110,7 +112,7 @@ function listOfPeople() {
     }
   );
   const dinner = schedule.scheduleJob(
-    { hour: 6, minute: 30, dayOfWeek: [0, 6] },
+    { hour: 19, minute: 48, dayOfWeek: [0, 6] },
     function () {
       bot.sendMessage(
         "552375707",
@@ -123,3 +125,6 @@ function listOfPeople() {
 
 listOfPeople();
 timeTable();
+let server = http
+  .createServer()
+  .listen(process.env.PORT || 3000, () => console.log("conneted"));
